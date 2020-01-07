@@ -6,6 +6,7 @@
 package perpusoft;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
  
@@ -25,6 +26,16 @@ public class koneksi {
             stm = con.createStatement();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "koneksi gagal "+e.getMessage());
+        }
+    }
+    
+    // method untuk menutup koneksi mysql
+    public void close(){
+        try {
+            // tutup koneksi
+            this.con.close();
+        } catch (SQLException ex) {
+            System.out.println("Penutupan koneksi gagal");
         }
     }
     
