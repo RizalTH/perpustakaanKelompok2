@@ -82,10 +82,10 @@ public class Petugas {
         }
     }
    
-    // DELETE DATA PETUGAS BERDASARKAN ID PETUGAS)
+    // DELETE DATA BUKU BERDASARKAN ID PETUGAS)
     public void delete(koneksi m, Integer idPetugas){
         
-        // query sql untuk hapus data buku berdasarkan idbook
+        // QUERY SQL UNTUK HAPUS DATA BUKU BERDASARKAN ID PETUGAS
         String sql = "DELETE FROM petugas WHERE idPetugas=?";
         // lakukan koneksi ke mysql
         Connection koneksi = m.con;
@@ -111,7 +111,7 @@ public class Petugas {
     // UPDATE DATA PETGAS BERDASARKAN ID PETUGAS
     public void update(koneksi m, Integer idPetugas, String namaPetugas, String jenisKelamin, String tempatLahir, String tanggalLahir,String jabatan, String alamat, Integer noHp){
         
-        // query sql untuk update data buku berdasarkan idbook
+        // QUERY SQL UNTUK UPDATE DATA PETUGAS BERDASARKAN ID PETUGAS
         String sql = "UPDATE petugas SET namaPetugas=?, jenisKelamin=?, tempatLahir=?, tanggalLahir=?, jabatan=?, alamat=?, noHp=?  WHERE idPetugas=?";
         // lakukan koneksi ke mysql
         Connection koneksi = m.con;
