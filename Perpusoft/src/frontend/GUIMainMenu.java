@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MainMenu {
+public class GUIMainMenu {
     private JPanel parentPane;
     private JPanel leftPane;
     private JPanel rightPane;
@@ -24,14 +24,29 @@ public class MainMenu {
     private JPanel btPetugas;
     private JPanel btBuku;
     private String current;
-    JFrame frame = new JFrame("Main");
-    Dashboard dashboardForm = new Dashboard();
-    Pinjaman pinjamanForm = new Pinjaman();
-    GUIAnggota GUIAnggotaForm = new GUIAnggota();
+
+    JFrame frame = new JFrame("GUIMainMenu");
+    GUIDashboard guiDashboard = new GUIDashboard();
+    GUIPinjaman guiPinjaman = new GUIPinjaman();
+    GUIAnggota guiAnggota = new GUIAnggota();
+    GUIPetugas guiPetugas = new GUIPetugas();
+    GUIBuku guiBuku = new GUIBuku();
 
 
 
-    public MainMenu() {
+
+    //  Class Konstruktor
+    public GUIMainMenu() {
+
+        current = "dashboard";
+        removeButtonState();
+        btDashboard.setBackground(new Color(0, 81,206));
+
+        contentPane.removeAll();
+        contentPane.add(guiDashboard.getParent());
+        contentPane.revalidate();
+        contentPane.repaint();
+
 
         //  --------------------------------------------------------------------
         //  Button DASHBOARD                                                  //
@@ -62,7 +77,7 @@ public class MainMenu {
                 btDashboard.setBackground(new Color(0, 81,206));
 
                 contentPane.removeAll();
-                contentPane.add(dashboardForm.getParent());
+                contentPane.add(guiDashboard.getParent());
                 contentPane.revalidate();
                 contentPane.repaint();
             }
@@ -99,7 +114,7 @@ public class MainMenu {
                 btPinjaman.setBackground(new Color(0, 81,206));
 
                 contentPane.removeAll();
-                contentPane.add(pinjamanForm.getParent());
+                contentPane.add(guiPinjaman.getParent());
                 contentPane.revalidate();
                 contentPane.repaint();
             }
@@ -136,7 +151,79 @@ public class MainMenu {
                 btAnggota.setBackground(new Color(0, 81,206));
 
                 contentPane.removeAll();
-                contentPane.add(GUIAnggotaForm.getParent());
+                contentPane.add(guiAnggota.getParent());
+                contentPane.revalidate();
+                contentPane.repaint();
+            }
+        });
+
+
+        //  --------------------------------------------------------------------
+        //  Button PETUGAS                                                    //
+        //  --------------------------------------------------------------------
+        //
+        btPetugas.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+                if (current != "petugas") {
+                    super.mouseEntered(mouseEvent);
+                    btPetugas.setBackground(new Color(100, 100,100));
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+                if (current != "petugas") {
+                    super.mouseExited(mouseEvent);
+                    btPetugas.setBackground(new Color(45, 45,45));
+                }
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                current = "petugas";
+                removeButtonState();
+                btPetugas.setBackground(new Color(0, 81,206));
+
+                contentPane.removeAll();
+                contentPane.add(guiPetugas.getParent());
+                contentPane.revalidate();
+                contentPane.repaint();
+            }
+        });
+
+
+        //  --------------------------------------------------------------------
+        //  Button BUKU                                                       //
+        //  --------------------------------------------------------------------
+        //
+        btBuku.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+                if (current != "buku") {
+                    super.mouseEntered(mouseEvent);
+                    btBuku.setBackground(new Color(100, 100,100));
+                }
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+                if (current != "buku") {
+                    super.mouseExited(mouseEvent);
+                    btBuku.setBackground(new Color(45, 45,45));
+                }
+            }
+
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                super.mouseClicked(mouseEvent);
+                current = "buku";
+                removeButtonState();
+                btBuku.setBackground(new Color(0, 81,206));
+
+                contentPane.removeAll();
+                contentPane.add(guiBuku.getParent());
                 contentPane.revalidate();
                 contentPane.repaint();
             }
@@ -144,10 +231,10 @@ public class MainMenu {
 
 
 
-    //  --------------------------------------------------------------------
-    //  Button CLOSE                                                      //
-    //  --------------------------------------------------------------------
-    //
+        //  --------------------------------------------------------------------
+        //  Button CLOSE                                                      //
+        //  --------------------------------------------------------------------
+        //
         btClose.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent mouseEvent) {
@@ -178,11 +265,11 @@ public class MainMenu {
 
     public void open() {
 
-        frame.setContentPane(new MainMenu().parentPane);
+        frame.setContentPane(new GUIMainMenu().parentPane);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setUndecorated(true);
 
-        MainMenu.FrameDragListener frameDragListener = new MainMenu.FrameDragListener(frame);
+        GUIMainMenu.FrameDragListener frameDragListener = new GUIMainMenu.FrameDragListener(frame);
         frame.addMouseListener(frameDragListener);
         frame.addMouseMotionListener(frameDragListener);
 

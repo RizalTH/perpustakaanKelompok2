@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="frontend.MainMenu">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="frontend.GUIMainMenu">
   <grid id="27dc6" binding="parentPane" layout-manager="GridLayoutManager" row-count="1" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
@@ -17,6 +17,7 @@
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="1" anchor="0" fill="3" indent="0" use-parent-layout="false">
             <preferred-size width="200" height="-1"/>
+            <maximum-size width="200" height="-1"/>
           </grid>
         </constraints>
         <properties>
@@ -24,7 +25,7 @@
         </properties>
         <border type="none"/>
         <children>
-          <grid id="8bab9" binding="head" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
+          <grid id="8bab9" binding="head" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
             <margin top="0" left="0" bottom="0" right="0"/>
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="0" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -35,7 +36,31 @@
               <background color="-13487566"/>
             </properties>
             <border type="none"/>
-            <children/>
+            <children>
+              <component id="fae61" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="2" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Ubuntu Light" size="26" style="1"/>
+                  <foreground color="-4144960"/>
+                  <horizontalTextPosition value="10"/>
+                  <text value="Perpusoft"/>
+                </properties>
+              </component>
+              <component id="f4b56" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="1" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <font name="Ubuntu Light" size="12" style="0"/>
+                  <foreground color="-4144960"/>
+                  <horizontalAlignment value="4"/>
+                  <horizontalTextPosition value="4"/>
+                  <text value="&lt;html&gt;&lt;center&gt;Software Manajemen&lt;br&gt; Perpustakaan&lt;/center&gt;&lt;/html&gt;"/>
+                </properties>
+              </component>
+            </children>
           </grid>
           <grid id="c43ba" binding="menuGroup" layout-manager="GridLayoutManager" row-count="5" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="0" vgap="0">
             <margin top="0" left="0" bottom="0" right="0"/>

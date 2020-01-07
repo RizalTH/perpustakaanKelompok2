@@ -24,6 +24,11 @@ public class GUIAnggota {
     private JPanel btCancel;
     private JPanel btHapus;
     private JPanel btUbah;
+    private JLabel labelTambah;
+    private JLabel labelSimpan;
+    private JLabel labelHapus;
+    private JLabel labelCancel;
+    private JLabel labelUbah;
 
     private ButtonGroup jenisKelaminGroup = new ButtonGroup();
 
@@ -171,14 +176,14 @@ public class GUIAnggota {
             @Override
             public void mouseEntered(MouseEvent mouseEvent) {
                 super.mouseEntered(mouseEvent);
-                btUbah.setBackground(new Color(123,125,0));
+                btUbah.setBackground(new Color(168,171,0));
             }
 
             //  On Hover Exit
             @Override
             public void mouseExited(MouseEvent mouseEvent) {
                 super.mouseExited(mouseEvent);
-                btUbah.setBackground(new Color(168,171,0));
+                btUbah.setBackground(new Color(123,125,0));
             }
         });
 
@@ -215,14 +220,14 @@ public class GUIAnggota {
             @Override
             public void mouseEntered(MouseEvent mouseEvent) {
                 super.mouseEntered(mouseEvent);
-                btSimpan.setBackground(new Color(0,52,11));
+                btSimpan.setBackground(new Color(0,125,9));
             }
 
             //  On Hover Ecit
             @Override
             public void mouseExited(MouseEvent mouseEvent) {
                 super.mouseExited(mouseEvent);
-                btSimpan.setBackground(new Color(0,125,9));
+                btSimpan.setBackground(new Color(0,52,11));
             }
         });
 

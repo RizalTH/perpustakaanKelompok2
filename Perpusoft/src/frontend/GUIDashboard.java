@@ -2,7 +2,7 @@ package frontend;
 
 import javax.swing.*;
 
-public class Dashboard {
+public class GUIDashboard {
     private JPanel parentPane;
     private JLabel tes;
 

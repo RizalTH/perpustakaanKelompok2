@@ -5,7 +5,7 @@ public class MainClass {
 
     public static void main(String[] args) {
 
-        MainMenu mainMenu = new MainMenu();
+        GUIMainMenu mainMenu = new GUIMainMenu();
         mainMenu.open();
 
     }
