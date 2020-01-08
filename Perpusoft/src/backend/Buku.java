@@ -86,14 +86,12 @@ public class Buku implements CRUD{
 
             // jika ada row affected nya, maka status sukses
             if (rowsInserted > 0) {
-                System.out.println("Insert data buku sukses");
                 return true;
             }
 
         } catch (SQLException ex) {
             // jika query gagal
             ex.printStackTrace();
-            System.out.println("Insert data buku gagal");
         }
         return false;
     }
@@ -116,13 +114,11 @@ public class Buku implements CRUD{
             // jalankan query, dan lihat jumlah row affected nya
             int rowsDeleted = statement.executeUpdate();
             if (rowsDeleted > 0) {
-                System.out.println("Data buku berhasil dihapus");
             }
             return true;
 
         } catch (SQLException ex) {
             ex.printStackTrace();
-            System.out.println("Hapus data buku gagal");
             return false;
         }
     }
@@ -155,7 +151,6 @@ public class Buku implements CRUD{
             }
 
         } catch (SQLException ex) {
-            System.out.println("Update data buku gagal");
         }
         return false;
     }
@@ -277,7 +272,6 @@ public class Buku implements CRUD{
             }
 
         } catch (SQLException ex) {
-            System.out.println("Update data buku gagal");
         }
         return false;
     }
