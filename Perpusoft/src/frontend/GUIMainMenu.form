@@ -105,6 +105,7 @@
                 </constraints>
                 <properties>
                   <background color="-13816531"/>
+                  <enabled value="false"/>
                 </properties>
                 <border type="none"/>
                 <children>

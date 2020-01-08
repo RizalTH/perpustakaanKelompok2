@@ -1,7 +1,5 @@
 package frontend;
 
-import backend.Anggota;
-
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -9,7 +7,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class GUIAnggota {
-    private JTable tableAnggota;
+    private JTable tablePetugas;
     private JPanel parentPane;
     private JPanel btTambah;
     private JTextField namaTextField;
@@ -101,8 +99,8 @@ public class GUIAnggota {
                 int answ = JOptionPane.showOptionDialog(null, "Yakin ingin menghapus?", "Konfirmasi Hapus", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
 
                 if (answ == 0) {
-                    int index = tableAnggota.getSelectedRow();
-                    String id = tableAnggota.getValueAt(index, 0).toString();
+                    int index = tablePetugas.getSelectedRow();
+                    String id = tablePetugas.getValueAt(index, 0).toString();
 
                     if (new backend.Anggota().delete(id)) {
                         JOptionPane.showMessageDialog(null, "Berhasil Dihapus");
@@ -145,12 +143,12 @@ public class GUIAnggota {
                 super.mouseClicked(mouseEvent);
 
                 //  Ambil value dari table
-                String nama = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 1).toString();
-                String jenis_kelamin = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 2).toString();
-                String tanggal_lahir = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 3).toString();
-                String tempat_lahir = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 4).toString();
-                String alamat = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 5).toString();
-                String nohp = tableAnggota.getValueAt(tableAnggota.getSelectedRow(), 6).toString();
+                String nama = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 1).toString();
+                String jenis_kelamin = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 2).toString();
+                String tanggal_lahir = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 3).toString();
+                String tempat_lahir = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 4).toString();
+                String alamat = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 5).toString();
+                String nohp = tablePetugas.getValueAt(tablePetugas.getSelectedRow(), 6).toString();
 
                 //  Masukin ke text field
                 namaTextField.setText(nama);
@@ -195,8 +193,8 @@ public class GUIAnggota {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 super.mouseClicked(mouseEvent);
-                int index = tableAnggota.getSelectedRow();
-                String id = tableAnggota.getValueAt(index, 0).toString();
+                int index = tablePetugas.getSelectedRow();
+                String id = tablePetugas.getValueAt(index, 0).toString();
 
                 if (new backend.Anggota().update(id, namaTextField.getText(), jenisKelaminGroup.getSelection().getActionCommand(), tglLahirTextField.getText(), tempatLahirTextField.getText(), alamatTextField.getText(), noHpTextField.getText()  )) {
                     JOptionPane.showMessageDialog(null, "Berhasil Diubah");
@@ -274,7 +272,7 @@ public class GUIAnggota {
 
         DefaultTableModel dm = new backend.Anggota().read();
         dm.isCellEditable(0,0);
-        tableAnggota.setModel(dm);
+        tablePetugas.setModel(dm);
     }
 
 

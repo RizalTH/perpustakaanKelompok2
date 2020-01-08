@@ -1,5 +1,7 @@
 package frontend;
 
+import backend.Pinjaman;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
@@ -113,6 +115,7 @@ public class GUIMainMenu {
                 removeButtonState();
                 btPinjaman.setBackground(new Color(0, 81,206));
 
+                guiPinjaman.retrieve();
                 contentPane.removeAll();
                 contentPane.add(guiPinjaman.getParent());
                 contentPane.revalidate();

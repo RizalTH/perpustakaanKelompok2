@@ -106,24 +106,24 @@ public class Anggota implements CRUD {
         try {
 
             //  Eksekusi query
-            ResultSet rs = stm.executeQuery(sql);
+            ResultSet result = stm.executeQuery(sql);
 
             //  Loop untuk mengambil semua data
-            while (rs.next()) {
+            while (result.next()) {
 
                 //  Ambil data
-                String id_anggota = rs.getString(1);
-                String nama_anggota = rs.getString(2);
-                String jenis_kelamin = rs.getString(3);
+                String id_anggota = result.getString("id_anggota");
+                String nama_anggota = result.getString("nama_anggota");
+                String jenis_kelamin = result.getString("jenis_kelamin");
                     if (jenis_kelamin.equals("1") ){
                         jenis_kelamin = "Laki - Laki";
                     } else {
                         jenis_kelamin = "Perempuan";
                     }
-                String tanggal_lahir = rs.getString(4);
-                String tempat_lahir = rs.getString(5);
-                String alamat = rs.getString(6);
-                String nohp = rs.getString(7);
+                String tanggal_lahir = result.getString("tanggal_lahir");
+                String tempat_lahir = result.getString("tempat_lahir");
+                String alamat = result.getString("alamat");
+                String nohp = result.getString("nohp");
 
                 //  Draw ke tabel
                 dm.addRow(new String[]{
@@ -193,6 +193,42 @@ public class Anggota implements CRUD {
             ex.printStackTrace();
             return false;
         }
+    }
+
+
+    //  Get Nama Petugas by ID
+    //  ------------------------------------------------------------
+    //
+    public String getNamaById(String id)
+    {
+        //  SQL Query
+        String sql="SELECT * FROM anggota WHERE id_anggota ='" + id + "'";
+
+        String nama_anggota = "";
+        try
+        {
+
+            //  Eksekusi Query
+            stm.execute(sql);
+
+            //  Eksekusi query
+            ResultSet result = stm.executeQuery(sql);
+
+            //  Loop untuk mengambil semua data
+            while (result.next()) {
+
+                //  Ambil data
+                nama_anggota = result.getString(2);
+                return nama_anggota;
+
+            }
+
+
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return nama_anggota;
     }
 
 }

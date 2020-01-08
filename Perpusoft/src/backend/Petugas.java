@@ -56,10 +56,10 @@ public class Petugas implements CRUD {
     //  ------------------------------------------------------------
     //  Overloading
     //
-    public Boolean create(String id_petugas, String nama_petugas, String jenis_kelamin, String tempat_lahir, String tanggal_lahir,String jabatan, String alamat, String nohp) {
+    public Boolean create(String nama_petugas, String jenis_kelamin, String tanggal_lahir, String tempat_lahir, String jabatan, String alamat, String nohp) {
 
         //  SQL Query Statement
-        String sql = "INSERT INTO anggota(" +
+        String sql = "INSERT INTO petugas(" +
                 "nama_petugas, " +
                 "jenis_kelamin, " +
                 "tanggal_lahir, " +
@@ -117,25 +117,25 @@ public class Petugas implements CRUD {
         try {
 
             //  Eksekusi query
-            ResultSet rs = stm.executeQuery(sql);
+            ResultSet result = stm.executeQuery(sql);
 
             //  Loop untuk mengambil semua data
-            while (rs.next()) {
+            while (result.next()) {
 
                 //  Ambil data
-                String id_petugas = rs.getString(1);
-                String nama_petugas = rs.getString(2);
-                String jenis_kelamin = rs.getString(3);
+                String id_petugas = result.getString(1);
+                String nama_petugas = result.getString(2);
+                String jenis_kelamin = result.getString(3);
                     if (jenis_kelamin.equals("1") ){
                         jenis_kelamin = "Laki - Laki";
                     } else {
                         jenis_kelamin = "Perempuan";
                     }
-                String tanggal_lahir = rs.getString(4);
-                String tempat_lahir = rs.getString(5);
-                String jabatan = rs.getString(9);
-                String alamat = rs.getString(6);
-                String nohp = rs.getString(7);
+                String tanggal_lahir = result.getString(4);
+                String tempat_lahir = result.getString(5);
+                String jabatan = result.getString(6);
+                String alamat = result.getString(7);
+                String nohp = result.getString(8);
 
                 //  Draw ke tabel
                 dm.addRow(new String[]{
@@ -166,10 +166,10 @@ public class Petugas implements CRUD {
     //  ------------------------------------------------------------
     //  Overloading
     //
-    public Boolean update(String id_petugas, String nama_petugas, String jenis_kelamin, String tempat_lahir, String tanggal_lahir,String jabatan, String alamat, String nohp) {
+    public Boolean update(String id_petugas, String nama_petugas, String jenis_kelamin, String tanggal_lahir, String tempat_lahir, String jabatan, String alamat, String nohp) {
 
         //  SQL Query
-        String sql = "UPDATE anggota SET nama_petugas='" + nama_petugas + "', jenis_kelamin='" + jenis_kelamin + "',tanggal_lahir='" + tanggal_lahir + "',tempat_lahir='" + tempat_lahir + "',jabatan='" + jabatan +"',alamat='" + alamat + "',nohp='" + nohp + "' WHERE id_petugas='" + id_petugas + "'";
+        String sql = "UPDATE petugas SET nama_petugas='" + nama_petugas + "', jenis_kelamin='" + jenis_kelamin + "',tanggal_lahir='" + tanggal_lahir + "',tempat_lahir='" + tempat_lahir + "',jabatan='" + jabatan +"',alamat='" + alamat + "',nohp='" + nohp + "' WHERE id_petugas='" + id_petugas + "'";
 
         try {
 
@@ -192,7 +192,7 @@ public class Petugas implements CRUD {
     public Boolean delete(String id)
     {
         //  SQL Query
-        String sql="DELETE FROM anggota WHERE id_petugas ='" + id + "'";
+        String sql="DELETE FROM petugas WHERE id_petugas ='" + id + "'";
 
         try
         {
@@ -207,6 +207,45 @@ public class Petugas implements CRUD {
             return false;
         }
     }
+
+
+
+
+    //  Get Nama Petugas by ID
+    //  ------------------------------------------------------------
+    //
+    public String getNamaById(String id)
+    {
+        //  SQL Query
+        String sql="SELECT * FROM petugas WHERE id_petugas ='" + id + "'";
+
+        String nama_petugas = "";
+        try
+        {
+
+            //  Eksekusi Query
+            stm.execute(sql);
+
+            //  Eksekusi query
+            ResultSet result = stm.executeQuery(sql);
+
+            //  Loop untuk mengambil semua data
+            while (result.next()) {
+
+                //  Ambil data
+                nama_petugas = result.getString(2);
+                return nama_petugas;
+
+            }
+
+
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return nama_petugas;
+    }
+
 
 }
 
