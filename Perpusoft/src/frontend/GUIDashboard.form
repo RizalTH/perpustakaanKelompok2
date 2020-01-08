@@ -17,10 +17,12 @@
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <foreground color="-16777216"/>
+          <font name="Ubuntu Light" size="22"/>
+          <foreground color="-5570557"/>
           <horizontalAlignment value="0"/>
           <horizontalTextPosition value="0"/>
-          <text value="Label"/>
+          <icon value="img/logo.png"/>
+          <text value="Under Construction"/>
           <verticalAlignment value="0"/>
         </properties>
       </component>
