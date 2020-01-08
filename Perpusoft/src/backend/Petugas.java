@@ -9,11 +9,12 @@ package backend;
  * @affifah
  */
        
+import backend.abstracts.GetNamaById;
 import backend.interfaces.CRUD;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
-public class Petugas implements CRUD {
+public class Petugas extends GetNamaById implements CRUD {
 
     //  Deklarasi MySql
     Connection con;
