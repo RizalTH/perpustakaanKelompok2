@@ -1,5 +1,6 @@
 package backend;
 
+//import method from class CRUD
 import backend.interfaces.CRUD;
 
 import javax.swing.table.DefaultTableModel;
@@ -13,26 +14,26 @@ import java.util.Date;
 
 public class Pinjaman {
 
-    //  Deklarasi MySql
+    //Deklarasi MySql
     Connection con;
     Statement stm;
     DBKoneksi DB = new DBKoneksi();
 
 
 
-    //  Class Konstruktor
+    //Definisi Class Konstruktor
     public Pinjaman() {
 
-        //  Konek ke database
+        //Konek ke Database
         DB.connect();
         con = DB.con;
         stm = DB.stm;
     }
 
-    //  ------------------------------------------------------------
-    //  INSERT DATA Method
-    //  ------------------------------------------------------------
-    //  Overloading
+    //------------------------------------------------------------
+    //INSERT DATA Method
+    //------------------------------------------------------------
+    //Overloading
     //
     public Boolean create(String id_peminjaman, String id_anggota, String durasi) {
 
@@ -52,7 +53,7 @@ public class Pinjaman {
         String id_petugas = new perpusoft.GlobalConfig().getCurrentIdPetugas();
 
 
-        //  SQL Query Statement
+        //SQL Query Statement
         String sql = "INSERT INTO peminjaman(" +
                 "id_peminjaman," +
                 "id_anggota, " +
@@ -63,13 +64,13 @@ public class Pinjaman {
 
         try {
 
-            //  Eksekusi query
+            //Eksekusi query
             stm.execute(sql);
 
-            //  Jika berhasil, return true.
+            //Jika Berhasil, Return True.
             return true;
 
-            //  Jika ada error
+            //Jika Ada Error
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -77,41 +78,41 @@ public class Pinjaman {
     }
 
 
-    //  ------------------------------------------------------------
-    //  GET DATA Method
-    //  ------------------------------------------------------------
+    //------------------------------------------------------------
+    //GET DATA Method
+    //------------------------------------------------------------
     //
     public DefaultTableModel read() {
 
-        //  Buat model tabel
+        //Buat Model Tabel
         DefaultTableModel dm = new DefaultTableModel() {
 
-            //  Tabel tidak bisa diedit langsung
+            //Tabel Tidak Bisa Di Edit Langsung
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
 
-        //  Tambah kolom ke model tabel
+        //Tambah Kolom ke Model Tabel
         dm.addColumn("ID");
         dm.addColumn("Nama Peminjam");
         dm.addColumn("Petugas");
         dm.addColumn("Tgl Pinjam");
         dm.addColumn("Harus Kembali");
 
-        //  SQL Query
+        //SQL Query
         String sql = "SELECT * FROM peminjaman";
 
         try {
 
-            //  Eksekusi query
+            //Eksekusi Query
             ResultSet result = stm.executeQuery(sql);
 
-            //  Loop untuk mengambil semua data
+            //Loop untuk Mengambil Semua Data
             while (result.next()) {
 
-                //  Ambil data
+                //Ambil Data
                 String id_peminjaman = result.getString(1);
                 String id_anggota = result.getString(2);
                 String id_petugas = result.getString(3);
@@ -121,7 +122,7 @@ public class Pinjaman {
                 String nama_anggota = new Anggota().getNamaById(id_anggota);
                 String nama_petugas = new Petugas().getNamaById(id_petugas);
 
-                //  Draw ke tabel
+                //Draw ke Tabel
                 dm.addRow(new String[]{
                         id_peminjaman,
                         nama_anggota,
@@ -133,7 +134,7 @@ public class Pinjaman {
 
             return dm;
 
-            //  Exception
+            //Exception
         } catch (Exception ex) {
             ex.printStackTrace();
         }
