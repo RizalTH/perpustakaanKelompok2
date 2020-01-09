@@ -1,10 +1,11 @@
 package backend;
 
+import backend.abstracts.GetNamaById;
 import backend.interfaces.CRUD;
 import java.sql.*;
 import javax.swing.table.DefaultTableModel;
 
-public class Anggota implements CRUD {
+public class Anggota extends GetNamaById implements CRUD {
 
     //  Deklarasi MySql
     Connection con;
