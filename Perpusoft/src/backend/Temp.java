@@ -126,6 +126,32 @@ public class Temp {
     }
 
 
+    //  ------------------------------------------------------------
+    //  TRUNCATE  Method
+    //  ------------------------------------------------------------
+    //  Menghapus semua data
+
+    public Boolean truncate(){
+
+        // QUERY SQL UNTUK UPDATE DATA BUKU BERDASARKAN ID BUKU
+        String sql = "TRUNCATE TABLE temppeminjaman";
+
+        try {
+            PreparedStatement statement = con.prepareStatement(sql);
+
+            // jalankan query, dan lihat jumlah row affected nya
+            int rowsDeleted = statement.executeUpdate();
+            if (rowsDeleted > 0) {
+            }
+            return true;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            return false;
+        }
+    }
+
+
     //  IF EXIST Method
     //  ------------------------------------------------------------
     //

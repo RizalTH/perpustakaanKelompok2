@@ -100,6 +100,8 @@ public class Peminjaman {
         dm.addColumn("Petugas");
         dm.addColumn("Tgl Pinjam");
         dm.addColumn("Harus Kembali");
+        dm.addColumn("Status");
+
 
         //SQL Query
         String sql = "SELECT * FROM peminjaman";
@@ -118,6 +120,13 @@ public class Peminjaman {
                 String id_petugas = result.getString(3);
                 String tgl_pinjam = result.getString(4);
                 String harus_kembali = result.getString(5);
+                String is_returned = result.getString(6);
+                String status = "";
+                if (Integer.parseInt(is_returned) == 1) {
+                    status = "Sudah dikembalikan";
+                } else {
+                    status = "Masih dipinjam";
+                }
 
                 String nama_anggota = new Anggota().getNamaById(id_anggota);
                 String nama_petugas = new Petugas().getNamaById(id_petugas);
@@ -129,6 +138,7 @@ public class Peminjaman {
                         nama_petugas,
                         tgl_pinjam,
                         harus_kembali,
+                        status
                 });
             }
 
@@ -140,6 +150,29 @@ public class Peminjaman {
         }
 
         return null;
+    }
+
+
+    //  Tandai sudah dikembalikan
+    //  ------------------------------------------------------------
+    //
+    public Boolean sudahDikembalikan(String id)
+    {
+        //  SQL Query
+        String sql = "UPDATE peminjaman SET is_returned=1 WHERE id_peminjaman='" + id + "'";
+
+        try
+        {
+            //  Eksekusi Query
+            stm.execute(sql);
+            return true;
+
+        } catch(Exception ex) {
+            ex.printStackTrace();
+        }
+
+        return false;
+
     }
 
 }

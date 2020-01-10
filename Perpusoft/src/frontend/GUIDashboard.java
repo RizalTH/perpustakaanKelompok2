@@ -1,5 +1,8 @@
 package frontend;
 
+import com.intellij.uiDesigner.core.GridConstraints;
+import com.intellij.uiDesigner.core.GridLayoutManager;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -27,7 +30,7 @@ public class GUIDashboard {
      */
     private void $$$setupUI$$$() {
         parentPane = new JPanel();
-        parentPane.setLayout(new com.intellij.uiDesigner.core.GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
+        parentPane.setLayout(new GridLayoutManager(1, 1, new Insets(0, 0, 0, 0), -1, -1));
         parentPane.setBackground(new Color(-2826009));
         parentPane.setMinimumSize(new Dimension(-1, -1));
         parentPane.setPreferredSize(new Dimension(-1, -1));
@@ -40,7 +43,7 @@ public class GUIDashboard {
         tes.setIcon(new ImageIcon(getClass().getResource("/img/logo.png")));
         tes.setText("Under Construction");
         tes.setVerticalAlignment(0);
-        parentPane.add(tes, new com.intellij.uiDesigner.core.GridConstraints(0, 0, 1, 1, com.intellij.uiDesigner.core.GridConstraints.ANCHOR_CENTER, com.intellij.uiDesigner.core.GridConstraints.FILL_NONE, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_SHRINK | com.intellij.uiDesigner.core.GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
+        parentPane.add(tes, new GridConstraints(0, 0, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, null, null, null, 0, false));
     }
 
     /**
@@ -68,4 +71,5 @@ public class GUIDashboard {
     public JComponent $$$getRootComponent$$$() {
         return parentPane;
     }
+
 }

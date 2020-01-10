@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package perpusoft;
+import backend.DBKoneksi;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
@@ -24,8 +26,8 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() {
         initComponents();
-        koneksi DB = new koneksi();
-        DB.config();
+        DBKoneksi DB = new DBKoneksi();
+        DB.connect();
         con = DB.con;
         stat = DB.stm;
     }

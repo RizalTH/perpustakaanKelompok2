@@ -9,8 +9,3 @@ nb-configuration.xml
 
 # Class Files #
 *.class
-
-# Package Files #
-*.jar
-*.war
-*.ear

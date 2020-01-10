@@ -9,7 +9,6 @@ public class MainClass {
         GUIMainMenu mainMenu = new GUIMainMenu();
         mainMenu.open();
 
-
     }
     
 }
